@@ -1,0 +1,21 @@
+// Add java code style validators from Google
+apply plugin: 'checkstyle'
+
+configurations {
+  checkstyleConfig
+}
+
+def versions = [checkstyle: '7.7']
+
+dependencies {
+  // Google checkstyle container. See https://github.com/checkstyle/checkstyle
+  checkstyleConfig("com.puppycrawl.tools:checkstyle:${versions.checkstyle}") {
+    transitive = false
+  }
+}
+
+checkstyle {
+  toolVersion = "${versions.checkstyle}"
+  config = resources.text.fromArchiveEntry(configurations.checkstyleConfig, 'google_checks.xml')
+  ignoreFailures = false
+}

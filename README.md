@@ -10,11 +10,11 @@ The application is in progress.
 * Lombok
 * JUnit
 * Slf4j
-* Spring OAuth2
 * Spring Boot
 * Spring Data
 * Spring Test
 * Spring Cloud
+* Spring OAuth2
 * Spring REST Docs
 * Spring Actuator
 * MyBatis
