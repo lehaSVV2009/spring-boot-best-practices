@@ -1,0 +1,2 @@
+// Add jar task
+apply plugin: 'java'

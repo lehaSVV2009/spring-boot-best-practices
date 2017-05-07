@@ -1,0 +1,24 @@
+// Add jar task
+apply plugin: 'java'
+// Add bootRun task
+apply plugin: 'org.springframework.boot'
+// Add check style
+apply from: "${rootProject.projectDir}/gradle/checkstyle.gradle"
+
+// Web location of the external libraries - https://search.maven.org/
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  compile project(':ui')
+
+  // Spring boot web app
+  compile 'org.springframework.boot:spring-boot-starter-web'
+  // Thymeleaf html templates
+  compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+
+  // Spring test with mockMvc
+  testCompile("org.springframework.boot:spring-boot-starter-test")
+}
+
