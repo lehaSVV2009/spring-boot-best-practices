@@ -1,11 +1,11 @@
 // Add java code style validators from Google
-apply plugin: 'checkstyle'
+apply plugin: "checkstyle"
 
 configurations {
   checkstyleConfig
 }
 
-def versions = [checkstyle: '7.7']
+def versions = [checkstyle: "7.7"]
 
 dependencies {
   // Google checkstyle container. See https://github.com/checkstyle/checkstyle
@@ -16,6 +16,6 @@ dependencies {
 
 checkstyle {
   toolVersion = "${versions.checkstyle}"
-  config = resources.text.fromArchiveEntry(configurations.checkstyleConfig, 'google_checks.xml')
+  config = resources.text.fromArchiveEntry(configurations.checkstyleConfig, "google_checks.xml")
   ignoreFailures = false
 }
