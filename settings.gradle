@@ -1,2 +1,2 @@
-include 'domain'
 include 'ui'
+include 'core'
