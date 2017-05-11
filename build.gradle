@@ -7,3 +7,13 @@ buildscript {
     classpath "org.springframework.boot:spring-boot-gradle-plugin:1.5.3.RELEASE"
   }
 }
+
+allprojects {
+
+  // Web location of the external libraries - https://search.maven.org/
+  repositories {
+    mavenCentral()
+  }
+
+  group = 'com.kadet'
+}
