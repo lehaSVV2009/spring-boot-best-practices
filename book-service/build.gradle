@@ -5,14 +5,25 @@ apply plugin: "org.springframework.boot"
 // Add Java check style
 apply from: "${rootProject.projectDir}/gradle/checkstyle.gradle"
 
+dependencyManagement {
+  imports {
+    // Automatically set up correct versions for spring cloud libraries
+    mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+  }
+}
+
 dependencies {
   // Provides some boilerplate java code like setters and getters
   compileOnly "org.projectlombok:lombok:1.16.16"
 
+  // Micro-service discovery client
+  compile "org.springframework.cloud:spring-cloud-starter-eureka"
   // Spring boot web app
   compile "org.springframework.boot:spring-boot-starter-web"
+  // Get configurations from cloud config application
+  compile "org.springframework.cloud:spring-cloud-starter-config"
   // Adds production grade services to spring app
-  compile 'org.springframework.boot:spring-boot-starter-actuator'
+  compile "org.springframework.boot:spring-boot-starter-actuator"
   // REST endpoint generating
   compile "org.springframework.boot:spring-boot-starter-data-rest"
   // ORM spring integration
@@ -20,7 +31,7 @@ dependencies {
   // Light-weigh database inside RAM
   compile "com.h2database:h2"
   // Google collection utils
-  compile 'com.google.guava:guava:21.0'
+  compile "com.google.guava:guava:21.0"
 
   // Provides some boilerplate java code like setters and getters
   testCompileOnly "org.projectlombok:lombok:1.16.16"

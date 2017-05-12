@@ -1,2 +1,4 @@
+include 'config'
+include 'registry'
+include 'book-service'
 include 'ui'
-include 'core'
