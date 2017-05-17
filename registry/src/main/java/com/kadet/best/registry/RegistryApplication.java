@@ -1,4 +1,4 @@
-package com.kadet.best;
+package com.kadet.best.registry;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,6 +1,5 @@
-package com.kadet.best.repository;
+package com.kadet.best.book;
 
-import com.kadet.best.entity.Book;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
