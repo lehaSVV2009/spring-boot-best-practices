@@ -1,4 +1,5 @@
 spring:
+  # Location of all shared spring boot configurations
   cloud:
     config:
       server:

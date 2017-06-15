@@ -1,6 +1,6 @@
 server:
   # Port where the app is running
-  port: 8090
+  port: 5000
 
 # Spring app configurations
 spring:
@@ -13,7 +13,7 @@ spring:
       # Return pretty multi-line json with spaces
       indent-output: true
 
-    # Trasnform 'myJavaField' to 'my_java_field' because it is more readable
+    # Transform 'myJavaField' to 'my_java_field' because it is more readable
     property-naming-strategy: CAMEL_CASE_TO_LOWER_CASE_WITH_UNDERSCORES
 
   data:
