@@ -1,0 +1,11 @@
+# Default port for Public API
+server:
+  port: 8080
+
+# Settings for micro services
+zuul:
+  # Routes to all the micro services
+  routes:
+    # Url to book service is {api-host}:{api-port}/book-service/**
+    book-service:
+      url: http://book-service:5000
