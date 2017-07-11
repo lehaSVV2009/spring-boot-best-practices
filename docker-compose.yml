@@ -1,0 +1,31 @@
+version: '2.1'
+services:
+
+  config:
+    build: config
+    ports:
+      - 8888:8888
+
+  registry:
+    build: registry
+    ports:
+      - 9999:9999
+    depends_on:
+      config:
+        condition: service_healthy
+
+  book-service:
+    build: book-service
+    ports:
+      - 5000:5000
+    depends_on:
+      config:
+        condition: service_healthy
+
+  api:
+    build: api
+    ports:
+      - 8080:8080
+    depends_on:
+      config:
+        condition: service_healthy

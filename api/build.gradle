@@ -1,0 +1,31 @@
+// Add jar task
+apply plugin: "java"
+// Add bootRun task
+apply plugin: "org.springframework.boot"
+// Add Java check style
+apply from: "${rootProject.projectDir}/gradle/checkstyle.gradle"
+
+dependencyManagement {
+  imports {
+    // Automatically set up correct versions for spring cloud libraries
+    mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+  }
+}
+
+dependencies {
+  // Provides some boilerplate java code like setters and getters
+  compileOnly "org.projectlombok:lombok:1.16.16"
+  // API gateway library
+  compile "org.springframework.cloud:spring-cloud-starter-zuul"
+  // Micro-service discovery client
+  compile "org.springframework.cloud:spring-cloud-starter-eureka"
+  // Spring boot web app
+  compile "org.springframework.boot:spring-boot-starter-web"
+  // Get configurations from cloud config application
+  compile "org.springframework.cloud:spring-cloud-starter-config"
+
+  // Provides some boilerplate java code like setters and getters
+  testCompileOnly "org.projectlombok:lombok:1.16.16"
+  // Spring test with mockMvc
+  testCompile "org.springframework.boot:spring-boot-starter-test"
+}

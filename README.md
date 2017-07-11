@@ -2,6 +2,20 @@
 
 The application is in progress.
 
+# Getting Started
+
+1) Clone this repository.
+`git clone git@github.com:lehaSVV2009/spring-boot-best-practices.git`
+
+2) Go to the root folder.
+`cd spring-boot-best-practices`
+
+3) Build the project.
+`./gradlew build`
+
+4) Run the application in docker.
+`docker-compose up`
+
 # Technologies (JUST IN PLAN)
 
 ## Backend

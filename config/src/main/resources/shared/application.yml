@@ -1,0 +1,9 @@
+# Global eureka registry configuration
+eureka:
+  instance:
+    # Show 172.0.1.3:5000 instead of 460fac4e2e2a:book-service:5000
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      # Link all applications to registry app on docker
+      defaultZone: http://registry:9999/eureka/

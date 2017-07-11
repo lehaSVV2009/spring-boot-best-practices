@@ -1,0 +1,20 @@
+// Add jar task
+apply plugin: "java"
+// Add bootRun task
+apply plugin: "org.springframework.boot"
+
+dependencyManagement {
+  imports {
+    // Automatically set up correct versions for spring cloud libraries
+    mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+  }
+}
+
+dependencies {
+  // Micro service registry server
+  compile "org.springframework.cloud:spring-cloud-starter-eureka-server"
+  // Get configurations from cloud config application
+  compile "org.springframework.cloud:spring-cloud-starter-config"
+  // Adds production grade services to spring app
+  compile "org.springframework.boot:spring-boot-starter-actuator"
+}

@@ -1,0 +1,47 @@
+// Add jar task
+apply plugin: "java"
+// Add bootRun task
+apply plugin: "org.springframework.boot"
+// Add Java check style
+apply from: "${rootProject.projectDir}/gradle/checkstyle.gradle"
+
+dependencyManagement {
+  imports {
+    // Automatically set up correct versions for spring cloud libraries
+    mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+  }
+}
+
+dependencies {
+  // Provides some boilerplate java code like setters and getters
+  compileOnly "org.projectlombok:lombok:1.16.16"
+
+  // Micro-service discovery client
+  compile "org.springframework.cloud:spring-cloud-starter-eureka"
+  // Spring boot web app
+  compile "org.springframework.boot:spring-boot-starter-web"
+  // Get configurations from cloud config application
+  compile "org.springframework.cloud:spring-cloud-starter-config"
+  // Adds production grade services to spring app
+  compile "org.springframework.boot:spring-boot-starter-actuator"
+  // REST endpoint generating
+  compile "org.springframework.boot:spring-boot-starter-data-rest"
+  // ORM spring integration
+  compile "org.springframework.boot:spring-boot-starter-data-jpa"
+  // Light-weigh database inside RAM
+  compile "com.h2database:h2"
+  // Google collection utils
+  compile "com.google.guava:guava:22.0"
+
+  // Swagger docs support for spring app
+  compile "io.springfox:springfox-swagger2:2.7.0"
+  // Swagger docs support for spring-rest-data
+  compile "io.springfox:springfox-data-rest:2.7.0"
+  // Swagger docs web ui
+  compile "io.springfox:springfox-swagger-ui:2.7.0"
+
+  // Provides some boilerplate java code like setters and getters
+  testCompileOnly "org.projectlombok:lombok:1.16.16"
+  // Spring test with mockMvc
+  testCompile "org.springframework.boot:spring-boot-starter-test"
+}

@@ -1,0 +1,26 @@
+server:
+  # Port where the app is running
+  port: 5000
+
+# Spring app configurations
+spring:
+  jackson:
+
+    # Do not include property to json if its value is null
+    default-property-inclusion: non_null
+
+    serialization:
+      # Return pretty multi-line json with spaces
+      indent-output: true
+
+    # Transform 'myJavaField' to 'my_java_field' because it is more readable
+    property-naming-strategy: CAMEL_CASE_TO_LOWER_CASE_WITH_UNDERSCORES
+
+  data:
+    rest:
+
+      # Return response body when entity is succesfully created
+      return-body-on-create: true
+
+      # Return response body when entity is succesfully updated
+      return-body-on-update: true
