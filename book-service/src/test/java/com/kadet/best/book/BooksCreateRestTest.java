@@ -34,7 +34,10 @@ public class BooksCreateRestTest {
 
   @Test
   public void should_create_book() throws Exception {
+    //
     // 1. Create book
+    //
+
     // given
     val bookToCreate = new Book()
         .setName("Sims 3")
@@ -56,7 +59,10 @@ public class BooksCreateRestTest {
     assertThat(createdBook.getName()).isEqualTo("Sims 3");
     assertThat(createdBook.getDescription()).isEqualTo("Game for girls");
 
+    //
     // 2. Delete book
+    //
+
     deleteBook(createBookResult.andReturn().getResponse().getHeader(HttpHeaders.LOCATION));
   }
 
